@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya Gao (高峰) | International Politics PhD Candidate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'swiss-red': '#DE372A', 
+                        'bg-gray': '#F5F5F7',
+                        'txt-main': '#1A1A1A',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'], // 优化中文字体显示
+                        serif: ['"Playfair Display"', 'serif'], // 英文衬线体
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F5F5F7; color: #1A1A1A; scroll-behavior: smooth; }
+        /* 增加左侧内边距，防止被固定导航栏遮挡 */
+        .section-container { min-height: 90vh; display: flex; align-items: center; padding: 4rem 0; border-bottom: 1px solid #e0e0e0; }
+        
+        /* 简单的编辑框样式 */
+        .editable:hover { background-color: rgba(0,0,0,0.05); cursor: text; outline: 1px dashed #999; }
+        
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .img-wrapper:hover img { transform: scale(1.02); }
+        
+        /* 音乐播放器样式 */
+        .music-control {
+            position: fixed; top: 20px; right: 20px; z-index: 100;
+            background: black; color: white; padding: 8px 16px;
+            border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .music-spinner { animation: spin 2s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* 双语排版辅助：英文稍微小一点，中文加粗 */
+        .en-sub { font-family: 'Playfair Display', serif; font-style: italic; opacity: 0.8; margin-top: 2px; }
+    </style>
+</head>
+<body class="font-sans antialiased relative">
+
+    <!-- 背景音乐 -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div onclick="toggleMusic()" class="music-control hover:scale-105 transition">
+        <i data-lucide="music" id="music-icon" width="16"></i>
+        <span id="music-text">PLAY MUSIC</span>
+    </div>
+
+    <!-- 左侧固定导航 (优化版：增加了背景块，防止视觉干扰) -->
+    <nav class="hidden lg:flex flex-col fixed left-0 top-0 h-full w-32 justify-center pl-8 gap-8 text-xs font-bold tracking-widest text-gray-400 z-50 border-r border-gray-200 bg-bg-gray">
+        <a href="#info" class="hover:text-swiss-red transition flex flex-col group">
+            <span>01 INFO</span>
+            <span class="text-[10px] scale-0 group-hover:scale-100 transition origin-left text-gray-800">基本信息</span>
+        </a>
+        <a href="#edu" class="hover:text-swiss-red transition flex flex-col group">
+            <span>02 EDU</span>
+            <span class="text-[10px] scale-0 group-hover:scale-100 transition origin-left text-gray-800">教育背景</span>
+        </a>
+        <a href="#academic" class="hover:text-swiss-red transition flex flex-col group">
+            <span>03 RSRCH</span>
+            <span class="text-[10px] scale-0 group-hover:scale-100 transition origin-left text-gray-800">学术成果</span>
+        </a>
+        <a href="#social" class="hover:text-swiss-red transition flex flex-col group">
+            <span>04 EXP</span>
+            <span class="text-[10px] scale-0 group-hover:scale-100 transition origin-left text-gray-800">社会经历</span>
+        </a>
+        <a href="#hobby" class="hover:text-swiss-red transition flex flex-col group">
+            <span>05 LIFE</span>
+            <span class="text-[10px] scale-0 group-hover:scale-100 transition origin-left text-gray-800">兴趣爱好</span>
+        </a>
+    </nav>
+
+    <!-- 主内容区域：增加了 lg:pl-32 确保内容不被导航遮挡 -->
+    <main class="w-full lg:pl-32">
+        
+        <!-- 1. 基本信息 (Basic Info) -->
+        <section id="info" class="section-container px-6 lg:px-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full max-w-6xl mx-auto">
+                <!-- 文字区 -->
+                <div class="lg:col-span-7 space-y-6 order-2 lg:order-1">
+                    <div class="space-y-1">
+                        <p class="text-swiss-red font-bold tracking-wider text-sm">PhD CANDIDATE</p>
+                        <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-black">
+                            <span class="editable">高峰</span>
+                            <span class="block text-4xl lg:text-5xl font-serif italic font-normal text-gray-500 mt-2 editable">Surya Gao</span>
+                        </h1>
+                    </div>
+                    
+                    <div class="border-l-4 border-swiss-red pl-6 py-2 space-y-4">
+                        <div class="editable">
+                            <p class="text-lg font-medium text-black">国际关系专业 博士研究生</p>
+                            <p class="en-sub text-base text-gray-600">PhD Candidate in International Politics</p>
+                        </div>
+                        
+                        <div class="pt-4 text-gray-700 leading-relaxed editable text-sm lg:text-base">
+                            <p>你好，我是高峰。始终保持好奇，在宏大的国际关系叙事中寻找微观的支点。</p>
+                            <p class="en-sub mt-2">Hello, I'm Surya. Maintaining curiosity, seeking micro-fulcrums within the grand narrative of international relations.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-600 mt-6 bg-white p-4 rounded-lg shadow-sm">
+                            <div>
+                                <strong class="block text-black uppercase text-xs tracking-wide">Born (出生年月)</strong>
+                                <span class="editable">Feb, 1999 (1999年2月)</span>
+                            </div>
+                            <div>
+                                <strong class="block text-black uppercase text-xs tracking-wide">Contact (联系方式)</strong>
+                                <span class="editable block">+86 158 0720 6072</span>
+                                <span class="editable text-xs">906223685@qq.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 图片区 (p1.jpg) -->
+                <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center">
+                    <div class="img-wrapper w-64 h-80 lg:w-80 lg:h-[420px] overflow-hidden rounded-t-[160px] border-4 border-white shadow-xl">
+                        <!-- 这里的图片默认引用 p1.jpg -->
+                        <img src="p1.jpg" alt="Surya Profile" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 教育背景 (Education) -->
+        <section id="edu" class="section-container px-6 lg:px-20 bg-white">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full max-w-6xl mx-auto">
+                <!-- 图片区 (p2.jpg) - 已去除黑白滤镜 -->
+                <div class="img-wrapper h-[400px] lg:h-[550px] w-full overflow-hidden shadow-lg rounded-sm">
+                    <img src="p2.jpg" alt="Graduation" class="object-cover" onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop&q=60'">
+                </div>
+                
+                <!-- 内容区 -->
+                <div class="space-y-10">
+                    <div class="border-b border-black pb-4 mb-8">
+                        <h2 class="text-3xl font-bold text-black editable">教育背景</h2>
+                        <p class="en-sub text-xl text-gray-500 editable">Education Background</p>
+                    </div>
+                    
+                    <!-- 博士 -->
+                    <div class="group relative pl-8 border-l border-gray-300">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-swiss-red rounded-full"></div>
+                        <span class="text-xs font-bold text-swiss-red editable">2024 — 至今 (Present)</span>
+                        <h3 class="text-xl font-bold mt-1 editable">华中师范大学</h3>
+                        <p class="text-sm font-serif italic text-gray-500 editable">Central China Normal University</p>
+                        <p class="mt-2 text-gray-800 font-medium editable">国际关系专业 · 博士</p>
+                        <p class="en-sub text-sm editable">PhD in International Relations</p>
+                    </div>
+
+                    <!-- 硕士 -->
+                    <div class="group relative pl-8 border-l border-gray-300">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                        <span class="text-xs font-bold text-gray-400 editable">2021 — 2024</span>
+                        <h3 class="text-xl font-bold mt-1 editable">华中师范大学</h3>
+                        <p class="text-sm font-serif italic text-gray-500 editable">Central China Normal University</p>
+                        <p class="mt-2 text-gray-800 font-medium editable">国际关系专业 · 硕士</p>
+                        <p class="en-sub text-sm editable">Master in International Relations</p>
+                    </div>
+
+                    <!-- 本科 -->
+                    <div class="group relative pl-8 border-l border-gray-300">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+                        <span class="text-xs font-bold text-gray-400 editable">2017 — 2021</span>
+                        <h3 class="text-xl font-bold mt-1 editable">华中师范大学</h3>
+                        <p class="text-sm font-serif italic text-gray-500 editable">Central China Normal University</p>
+                        <p class="mt-2 text-gray-800 font-medium editable">国际政治专业 · 本科</p>
+                        <p class="en-sub text-sm editable">Bachelor in International Politics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 学术成果 (Academic Achievements) -->
+        <section id="academic" class="section-container px-6 lg:px-20">
+            <div class="w-full max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-300 pb-4">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-bold editable">学术成果</h2>
+                        <p class="en-sub text-xl text-gray-500 editable">Selected Research & Publications</p>
+                    </div>
+                    <p class="text-sm text-gray-500 max-w-md text-right mt-4 md:mt-0 editable">
+                        论文发表 / 课题项目 / 会议记录<br>
+                        <span class="text-xs italic">Papers, Projects & Conferences</span>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <!-- 图片 (p3.jpg) -->
+                    <div class="lg:col-span-4">
+                        <div class="img-wrapper aspect-[3/4] overflow-hidden rounded-lg shadow-lg">
+                            <img src="p3.jpg" alt="Research" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&auto=format&fit=crop&q=60'">
+                        </div>
+                    </div>
+                    
+                    <!-- 列表区域 -->
+                    <div class="lg:col-span-8 space-y-6">
+                        <!-- 成果 1 -->
+                        <div class="bg-white p-6 shadow-sm border border-gray-200 hover:shadow-md transition rounded-lg">
+                            <div class="flex gap-4 items-start">
+                                <div class="flex flex-col items-center min-w-[60px]">
+                                    <span class="bg-black text-white text-[10px] px-2 py-1 uppercase tracking-wider mb-1 editable">Paper</span>
+                                    <span class="text-xs font-bold text-gray-400 editable">202X</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold mb-1 editable">[请在此处输入论文标题]</h3>
+                                    <p class="en-sub text-sm text-gray-500 mb-2 editable">[English Title of the Paper]</p>
+                                    <p class="text-sm text-gray-700 leading-relaxed editable">
+                                        在此处输入论文摘要、发表期刊名称。点击这里直接编辑中文内容。
+                                    </p>
+                                    <p class="text-xs text-gray-500 mt-2 italic editable">
+                                        Here is the abstract or journal name. Click here to edit English content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 成果 2 -->
+                        <div class="bg-white p-6 shadow-sm border border-gray-200 hover:shadow-md transition rounded-lg">
+                            <div class="flex gap-4 items-start">
+                                <div class="flex flex-col items-center min-w-[60px]">
+                                    <span class="bg-swiss-red text-white text-[10px] px-2 py-1 uppercase tracking-wider mb-1 editable">Project</span>
+                                    <span class="text-xs font-bold text-gray-400 editable">202X</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold mb-1 editable">[请在此处输入参与课题]</h3>
+                                    <p class="en-sub text-sm text-gray-500 mb-2 editable">[Project Name]</p>
+                                    <p class="text-sm text-gray-700 leading-relaxed editable">
+                                        描述你在项目中承担的角色、研究方法以及主要贡献。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- 成果 3 -->
+                         <div class="bg-white p-6 shadow-sm border border-gray-200 hover:shadow-md transition rounded-lg">
+                            <div class="flex gap-4 items-start">
+                                <div class="flex flex-col items-center min-w-[60px]">
+                                    <span class="bg-gray-500 text-white text-[10px] px-2 py-1 uppercase tracking-wider mb-1 editable">Talk</span>
+                                    <span class="text-xs font-bold text-gray-400 editable">202X</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold mb-1 editable">[请在此处输入学术会议]</h3>
+                                    <p class="en-sub text-sm text-gray-500 mb-2 editable">[Conference Name]</p>
+                                    <p class="text-sm text-gray-700 leading-relaxed editable">
+                                        记录会议名称、地点以及你的发言主题。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 社会经历 (Social Experience) -->
+        <section id="social" class="section-container bg-white w-full px-6 lg:px-20 py-20">
+            <div class="max-w-6xl mx-auto w-full">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold editable">社会经历 & 实习</h2>
+                    <p class="en-sub text-xl text-gray-500 editable">Social Experience & Internships</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-gray-200 shadow-xl">
+                    <!-- 图片 (p4.jpg) -->
+                    <div class="img-wrapper h-96 lg:h-auto overflow-hidden relative bg-gray-100">
+                         <img src="p4.jpg" alt="Social" class="object-cover" onerror="this.src='https://images.unsplash.com/photo-1516939884455-1445c8652f83?w=800&auto=format&fit=crop&q=60'">
+                         <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 text-black text-xs font-bold uppercase tracking-widest shadow-sm">Field Work</div>
+                    </div>
+
+                    <!-- 经历列表 -->
+                    <div class="p-10 lg:p-16 flex flex-col justify-center bg-gray-50">
+                        <div class="space-y-10">
+                            <!-- 经历 A -->
+                            <div class="border-l-2 border-black pl-6 relative">
+                                <span class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-black rounded-full"></span>
+                                <h4 class="font-bold text-lg editable">某某机构名称 (Organization A)</h4>
+                                <p class="text-xs text-gray-500 mb-3 font-mono editable">Location | 202X - 202X</p>
+                                <p class="text-sm text-gray-700 editable">
+                                    在此处详细描述你的社会实践经历。例如：参与了某某NGO的调研，负责数据收集与分析。
+                                </p>
+                                <p class="text-xs text-gray-500 mt-1 italic editable">
+                                    Describe your internship or social work experience here clearly.
+                                </p>
+                            </div>
+                            
+                            <!-- 经历 B -->
+                            <div class="border-l-2 border-gray-300 pl-6 relative">
+                                <span class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-gray-300 rounded-full"></span>
+                                <h4 class="font-bold text-lg editable">某某机构名称 (Organization B)</h4>
+                                <p class="text-xs text-gray-500 mb-3 font-mono editable">Location | 202X - 202X</p>
+                                <p class="text-sm text-gray-700 editable">
+                                    在此处详细描述你的志愿服务经历或学生工作经历。
+                                </p>
+                                <p class="text-xs text-gray-500 mt-1 italic editable">
+                                    Describe your volunteer work or student union experience here.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 兴趣爱好 (Interests) -->
+        <section id="hobby" class="section-container px-6 lg:px-20 mb-20">
+            <div class="w-full max-w-6xl mx-auto text-center space-y-10">
+                <div>
+                    <h2 class="text-3xl font-bold editable">生活与爱好</h2>
+                    <p class="en-sub text-xl text-gray-500 editable">Life & Interests</p>
+                </div>
+                
+                <p class="text-gray-500 max-w-2xl mx-auto editable text-sm lg:text-base">
+                    除了学术研究，我也热爱音乐、旅行和摄影。我认为生活本身就是一种田野调查。<br>
+                    <span class="en-sub text-gray-400">Besides academic research, I love music, travel and photography. Life itself is a kind of field work.</span>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 图片区 (p5.jpg) -->
+                    <div class="md:col-span-2 h-[400px] overflow-hidden rounded-2xl relative group shadow-lg">
+                        <img src="p5.jpg" alt="Life" class="object-cover w-full h-full" onerror="this.src='https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&auto=format&fit=crop&q=60'">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                    </div>
+                    
+                    <!-- 文本卡片 -->
+                    <div class="bg-black text-white p-8 rounded-2xl flex flex-col justify-between text-left shadow-2xl">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="bg-swiss-red p-2 rounded-full"><i data-lucide="mic-2" class="w-5 h-5 text-white"></i></div>
+                                <span class="font-serif italic text-lg opacity-80">Vocal & Music</span>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold mb-2 editable">声乐与音乐</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed editable">
+                                我热爱歌唱，音乐是我表达情感的另一种语言。这里可以写一段关于你对音乐的理解。
+                            </p>
+                            <p class="text-xs text-gray-600 mt-2 italic editable">
+                                Music is another language for me to express emotions.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-gray-800">
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Background Music</p>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="disc-3" class="animate-spin-slow w-4 h-4"></i>
+                                <p class="font-bold text-sm">Hayd - Closure</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-200 py-10 text-center text-xs text-gray-400 bg-bg-gray w-full lg:pl-32">
+        <p class="editable">© 2026 Surya Gao. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 编辑器脚本 -->
+    <div id="edit-controls" class="fixed bottom-6 right-6 flex flex-col gap-2 z-50">
+        <button onclick="toggleEditMode()" id="edit-btn" class="bg-black/80 backdrop-blur text-white px-5 py-3 rounded-full shadow-2xl font-bold border border-gray-600 hover:bg-black transition text-sm flex items-center gap-2">
+            <span>✏️</span> 编辑模式 (Edit)
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // 音乐控制
+        const audio = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        const musicText = document.getElementById('music-text');
+        
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.setAttribute('data-lucide', 'loader');
+                musicIcon.classList.add('music-spinner');
+                musicText.innerText = "PLAYING...";
+                lucide.createIcons();
+            } else {
+                audio.pause();
+                musicIcon.setAttribute('data-lucide', 'music');
+                musicIcon.classList.remove('music-spinner');
+                musicText.innerText = "PLAY MUSIC";
+                lucide.createIcons();
+            }
+        }
+
+        // 编辑模式
+        let isEditing = false;
+        function toggleEditMode() {
+            isEditing = !isEditing;
+            const btn = document.getElementById('edit-btn');
+            const editables = document.querySelectorAll('.editable');
+            
+            if (isEditing) {
+                btn.innerHTML = "💾 修改完记得保存 (Ctrl+S)";
+                btn.classList.add('bg-swiss-red', 'border-swiss-red');
+                btn.classList.remove('bg-black/80', 'border-gray-600');
+                
+                editables.forEach(el => {
+                    el.contentEditable = "true";
+                });
+                alert("已进入编辑模式！\n你可以直接点击网页上的中英文进行修改。\nEdit Mode ON: Click text to edit.");
+            } else {
+                btn.innerHTML = "<span>✏️</span> 编辑模式 (Edit)";
+                btn.classList.remove('bg-swiss-red', 'border-swiss-red');
+                btn.classList.add('bg-black/80', 'border-gray-600');
+                
+                editables.forEach(el => {
+                    el.contentEditable = "false";
+                });
+            }
+        }
+    </script>
+</body>
+</html>
